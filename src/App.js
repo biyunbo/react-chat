@@ -17,7 +17,7 @@ import { asyncComponent } from './AsyncComponent';
 import Home from 'containers/Home';
 // import {Footer} from 'components/Common/Index';
 
-const List = asyncComponent(() => import(/* webpackChunkName: "Topic" */ "./containers/List"))
+const List = asyncComponent(() => import(/* webpackChunkName: "List" */ "./containers/List"))
 
 @connect (
     state => state,
@@ -37,7 +37,7 @@ export default class App extends React.Component {
                 return(
                   <div key={location.pathname} className="box">
                       <Route location={location} exact path="/" component={Home} />
-                      <Route location={location} path="/list" component={List} />
+                      <Route location={location} path="/List" component={List} />
                   </div>
                 )
             }}/>

@@ -5,11 +5,11 @@ var io = require('socket.io').listen(server);
 
 server.listen(3000);
 
-
+var roomInfo = {};
 io.sockets.on('connection', function (socket) {
 	//获取当前url
   	var url = socket.request.headers.referer;
-  	var splited = url.split('/');
+  	var splited = url.split('/List/');
   	var roomID = splited[splited.length - 1];   // 获取房间ID
   	var user = '';
 	socket.on('join',function(userName){

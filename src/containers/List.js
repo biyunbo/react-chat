@@ -2,22 +2,21 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import io from 'socket.io-client';
-var socket = io.connect('http://localhost:3000');
 /*actions*/
+import * as global from 'actions/global';
 
 /*组件*/
 
-// @connect(
-//     state => state,
-//     dispatch => bindActionCreators({...indexList,...global}, dispatch)
-// )
+@connect(
+    state => state,
+    dispatch => bindActionCreators({...global}, dispatch)
+)
 export default class List extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 	componentWillMount(){
-		
+		console.log(this.props)
 	}
 	render() {
 		return(
