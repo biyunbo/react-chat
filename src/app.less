@@ -22,7 +22,14 @@ html,body{
 		}
 	}
 }
-
+.clear::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
 /*Home*/
 .home{
 	width: 100%;
@@ -158,10 +165,69 @@ html,body{
 	    	text-align: center;
 	    	color: #fff;
 	    }
+	    .gengduo{
+	    	text-align: center;
+	    	color: #fff;
+	    	padding-right: 10px;
+	    }
 	}
 	.chat-main{
 		flex:1;
     	overflow: auto;
+    	.li{
+    		padding:10px;
+    		.name{
+    			padding-bottom: 5px;
+    			color:#fff;
+    		}
+    		.cmsg{
+    			background: #fff;
+    			float: left;
+    			max-width: 300px;
+    			padding: 5px;
+    			border-radius: 5px;
+    			position: relative;
+    			margin-top: 3px;
+    		}
+    		.cmsg:before{
+				content:"";
+				width:0;
+				height:0;
+				position:absolute;
+				left:8px;
+				top:-8px;
+				border-right:solid 8px transparent;
+				border-bottom:solid 8px #fff;
+				border-left:solid 8px transparent;
+
+    		}
+    		.name1{
+    			padding-bottom: 5px;
+    			color:#fff;
+    			text-align: right;
+    		}
+    		.cmsg1{
+    			background: #fff;
+    			float: right;
+    			max-width: 300px;
+    			padding: 5px;
+    			border-radius: 5px;
+    			position: relative;
+    			margin-top: 3px;
+    		}
+    		.cmsg1:before{
+				content:"";
+				width:0;
+				height:0;
+				position:absolute;
+				right:8px;
+				top:-8px;
+				border-right:solid 8px transparent;
+				border-bottom:solid 8px #fff;
+				border-left:solid 8px transparent;
+
+    		}
+    	}
 	}
 	.send{
 		width: 100%;
