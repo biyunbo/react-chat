@@ -16,29 +16,174 @@ html,body{
 	#root{
 		width: 100%;
 		height: 100%;
+		.box{
+			width: 100%;
+			height: 100%;
+		}
 	}
 }
 
 /*Home*/
 .home{
-	input{
-		width: 80%;
-		height: 30px;
-		border:1px solid #ccc;
-		display: block;
-		margin: 0 auto;
-		margin-top: 200px;
-		text-align: center;
-		border-radius: 5px;
+	width: 100%;
+	height: 100%;
+	background-image: url(./containers/img/homebg.jpg);
+	background-size: 100%;
+	.input{
+		padding-top: 190px;
+		input{
+			width: 80%;
+			height: 30px;
+			border:1px solid #ccc;
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			border-radius: 5px;
+		}
 	}
 	.login{
 		width: 100px;
 		height: 30px;
 		border:1px solid #333;
 		margin: 0 auto;
-		margin-top: 30px;
+		margin-top: 80px;
 		border-radius: 5px;
 		text-align: center;
 		line-height: 30px;
+	}
+}
+
+/*List*/
+.list{
+	width: 100%;
+	height: 100%;
+	display: flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    background-image: url(./containers/img/homebg.jpg);
+    background-size: 100%;
+    .search{
+    	width: 100%;
+    	height: 70px;
+    	padding:10px 0;
+    	input{
+    		float: left;
+    		width: 200px;
+    		height: 40px;
+    		border:1px solid #ccc;
+    		text-align: center;
+    		border-radius: 5px;
+    		margin-left: 20px;
+    	}
+    	.join{
+    		float: right;
+    		height: 40px;
+    		width: 100px;
+    		text-align: center;
+    		line-height: 40px;
+    		margin-right: 20px;
+			background: #7fd9b7;
+			border-radius: 5px;
+    		color: #f9fef7;
+    	}
+    	.list-top{
+    		width: 100%;
+    		height: 20px;
+    		float: left;
+    		text-align: center;
+    		color: #fff;
+    		margin-top: 10px;
+    	}
+    }
+    .list-z{
+    	flex:1;
+    	overflow: auto;
+    	padding-bottom: 20px;
+    	.li{
+    		width: 90%;
+    		height: 40px;
+    		margin: 0 auto;
+    		background: #fff;
+			border-radius: 5px;
+			margin-top: 20px;
+			display: flex;
+			flex-direction: row;
+			justify-content:space-around;
+			.name{
+				width: 250px;
+				height: 40px;
+				line-height: 40px;
+			}
+			.go{
+				width: 50px;
+				height: 30px;
+				background: #7fd9b7;
+				line-height: 30px;
+				margin-top: 5px;
+				border-radius: 5px;
+				text-align: center;
+				color: #fff;
+			}
+    	}
+    }
+}
+
+/*Chat*/
+.chat{
+	width: 100%;
+	height: 100%;
+	display: flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    background-image: url(./containers/img/homebg.jpg);
+    background-size: 100%;
+	.top{
+		width: 100%;
+		display: flex;
+	    flex-direction:row;
+	    justify-content:space-between;
+	    height: 40px;
+	    line-height: 40px;
+	    background: #7fd9b7;
+	    .fanhui{
+	    	padding-left: 10px;
+	    	i{
+	    		font-size: 16px;
+	    		font-weight: 600px;
+	    		color:#fff;
+	    	}
+	    }
+	    .title{
+	    	flex:1;
+	    	text-align: center;
+	    	color: #fff;
+	    }
+	}
+	.chat-main{
+		flex:1;
+    	overflow: auto;
+	}
+	.send{
+		width: 100%;
+		height: 45px;
+		display: flex;
+		flex-direction: row;
+		justify-content:space-around;
+		input{
+			width: 300px;
+			height: 40px;
+			padding-left: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+		}
+		.send-in{
+			width: 40px;
+			height: 40px;
+			background: #7fd9b7;
+			text-align: center;
+			line-height: 40px;
+			border-radius: 5px;
+			color: #fff;
+		}
 	}
 }

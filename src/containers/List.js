@@ -1,6 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 /*actions*/
 import * as global from 'actions/global';
@@ -19,9 +20,39 @@ export default class List extends React.Component {
 		console.log(this.props)
 	}
 	render() {
+		let {roomList} = this.props.global
+		console.log(roomList)
 		return(
-			<div>
-				<div>111</div>
+			<div className="list">
+				<div className='search'>
+					<input placeholder="请输入房间ID" ref={(ref) => this.myvalue = ref} />
+					<div className="join">加入房间</div>
+					<div className="list-top">房间列表</div>
+				</div>
+				<div className="list-z">
+					{
+						roomList.map((ele, index) => {
+						    return (
+						        <Li key={index} {...ele} />
+						    )
+						})
+					}
+				</div>
+			</div>
+		)
+	}
+}
+
+class Li extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		let {roomId} = this.props
+		return(
+			<div className="li">
+				<div className="name">{roomId}</div>
+				<Link to={`/chat/${roomId}`} className="go">进入</Link>
 			</div>
 		)
 	}

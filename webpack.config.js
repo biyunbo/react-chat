@@ -107,7 +107,7 @@ module.exports = {
             })
         }, {
             test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-            use: ['url-loader?limit=8000&name=files/[md5:hash:base64:10].[ext]']
+            use: ['url-loader?publicPath=/build/&limit=10000&name=files/[md5:hash:base64:10].[ext]'],
         }]
     },
     devServer: {

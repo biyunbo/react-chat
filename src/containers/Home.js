@@ -7,6 +7,7 @@ import * as global from 'actions/global';
 
 /*组件*/
 
+
 @connect(
     state => state,
     dispatch => bindActionCreators({...global}, dispatch)
@@ -28,7 +29,9 @@ export default class Home extends React.Component {
 	render() {
 		return(
 			<div className="home">
-				<input placeholder="请输入用户名" ref={(ref) => this.myvalue = ref} />
+				<div className="input">
+					<input placeholder="请输入用户名" ref={(ref) => this.myvalue = ref} />
+				</div>
 				<div className="login" onClick={this.handleClick}>登录</div>
 			</div>
 		)

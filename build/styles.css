@@ -1,0 +1,68 @@
+/*全局css样式*/
+body,
+ul,
+li,
+a,
+p,
+h2,
+h3,
+textarea,
+button,
+input,
+select {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  font-family: "\5FAE\8F6F\96C5\9ED1";
+}
+body:focus,
+ul:focus,
+li:focus,
+a:focus,
+p:focus,
+h2:focus,
+h3:focus,
+textarea:focus,
+button:focus,
+input:focus,
+select:focus {
+  outline: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+html #root,
+body #root {
+  width: 100%;
+  height: 100%;
+}
+/*Home*/
+.home {
+  padding-top: 200px;
+  background-image: url(./build/files/XRF86qvq3m.jpg);
+}
+.home input {
+  width: 80%;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 5px;
+}
+.home .login {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #333;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+}
+
+/*# sourceMappingURL=styles.css.map*/

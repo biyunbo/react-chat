@@ -9,6 +9,7 @@ const history = createHistory()
  全局导入less
  */
 import './app.less'
+import './iconfont/iconfont.css'
 
 
 import * as global from 'actions/global';
@@ -18,6 +19,8 @@ import Home from 'containers/Home';
 // import {Footer} from 'components/Common/Index';
 
 const List = asyncComponent(() => import(/* webpackChunkName: "List" */ "./containers/List"))
+const Chat = asyncComponent(() => import(/* webpackChunkName: "Chat" */ "./containers/Chat"))
+
 
 @connect (
     state => state,
@@ -38,6 +41,7 @@ export default class App extends React.Component {
                   <div key={location.pathname} className="box">
                       <Route location={location} exact path="/" component={Home} />
                       <Route location={location} path="/List" component={List} />
+                      <Route location={location} path="/Chat/:roomId" component={Chat} />
                   </div>
                 )
             }}/>

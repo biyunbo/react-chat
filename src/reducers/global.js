@@ -1,7 +1,7 @@
 // 初始化状态
 let Initialization = {
     userName : '',
-    roomList : [{roomId:'1'}]
+    roomList : [{roomId:'默认'}]
 }
 
 export function global(state = Initialization , action) {
