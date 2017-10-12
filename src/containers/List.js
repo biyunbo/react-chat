@@ -15,9 +15,17 @@ import * as global from 'actions/global';
 export default class List extends React.Component {
 	constructor(props) {
 		super(props);
+        this.addroom = this.addroom.bind(this);
 	}
 	componentWillMount(){
-		console.log(this.props)
+
+	}
+	addroom(){
+		if(this.myvalue.value != ""){
+			let roomId = this.myvalue.value;
+			this.props.addRoomId(roomId);
+			this.props.history.push(`/Chat/${roomId}`)
+		}
 	}
 	render() {
 		let {roomList} = this.props.global
@@ -26,7 +34,7 @@ export default class List extends React.Component {
 			<div className="list">
 				<div className='search'>
 					<input placeholder="请输入房间ID" ref={(ref) => this.myvalue = ref} />
-					<div className="join">加入房间</div>
+					<div className="join" onClick={this.addroom}>加入房间</div>
 					<div className="list-top">房间列表</div>
 				</div>
 				<div className="list-z">

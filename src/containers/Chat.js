@@ -18,33 +18,42 @@ export default class Chat extends React.Component {
 		super(props);
 		this.send = this.send.bind(this)
         this.msg = this.msg.bind(this)
-
+        let {roomId} = props.match.params;
+        this.socket = io.connect(`localhost:3000`,{query:`roomId=${roomId}`});
 	}
 	componentWillMount(){
-		let {roomId} = this.props.match.params;
-        var socket = io.connect(`localhost:3000`,{query:`roomId=${roomId}`});
         let {userName} = this.props.global
-        this.props.join(userName,socket)
-        socket.on('msg',this.msg);
-	}
-	send(){
         let {roomId} = this.props.match.params;
-        var socket = io.connect(`localhost:3000`,{query:`roomId=${roomId}`});
+        this.props.roomId(roomId);
+        this.props.join(userName,this.socket)
+        this.socket.on('msg',this.msg);
+	}
+	componentWillReceiveProps(newProps) {
+        //props改变触发此函数
+        if (newProps.global.roomId !== this.props.global.roomId) {
+        	var msg = [];
+            this.props.msgC(msg);
+        }
+    }
+	send(){
 		let value = this.myvalue.value
         let {userName} = this.props.global
         let data = {userName:userName,msg:value}
-        socket.send(data);
+        if(value != ""){
+        	this.socket.send(data);
+        }
         this.myvalue.value = '';
 	}
     msg(data){
-        this.props.msg(data)
+        this.props.msg(data);
+        this.mylistdiv.scrollTop = this.mylistdiv.scrollHeight
     }
 	render() {
         var {msgList,userName} = this.props.global;
 		return(
 			<div className="chat">
-				<Header title="登录" leftto="fanhui" {...this.props}/>
-				<div className="chat-main">
+				<Header title="登录" leftto="fanhui" {...this.props} socket={this.socket}/>
+				<div className="chat-main" ref={(ref) => this.mylistdiv = ref}>
                     {
                         msgList.map((ele,index) => {
                             return (
@@ -74,11 +83,9 @@ class Header extends React.Component {
     handleClick() {
         //该函数用来执行组件内部的事件，比如在这里就是nav组件菜单的导航点击事件
         // this.props.history.push('/')
+        var {socket} = this.props;
         history.go(-1);
-        let {roomId} = this.props.match.params;
-        var socket = io.connect(`localhost:3000`,{query:`roomId=${roomId}`});
-        let {userName} = this.props.global
-        this.props.leave(userName,socket)
+        this.props.leave(socket)
     }
     render() {
         let { title,leftto } = this.props;

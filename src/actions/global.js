@@ -7,8 +7,18 @@ export const userName = (userName) => ({
 })
 
 export const addRoomId = (roomId) => ({
+	type: 'ADD_ROOM_ID',
+	roomId
+})
+
+export const roomId = (roomId) => ({
 	type: 'ROOM_ID',
 	roomId
+})
+
+export const msgC = (msgC) => ({
+	type: 'MSGC',
+	msgC
 })
 
 //加入房间
@@ -18,12 +28,13 @@ export const join = (userName,socket) =>(dispatch,getState) => {
     });
 }
 
-export const leave = (userName,socket) =>(dispatch) => {
-	socket.emit('leave',userName);
+//离开房间
+export const leave = (socket) =>(dispatch) => {
+	socket.emit('leave');
 }
 
 //消息
-export const msg = (smg) => ({
+export const msg = (msg) => ({
 	type: 'MSG',
-	smg
+	msg
 })

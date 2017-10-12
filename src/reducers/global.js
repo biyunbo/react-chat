@@ -1,7 +1,8 @@
 // 初始化状态
 let Initialization = {
     userName : '',
-    roomList : [{roomId:'默认'}],
+    roomId : '',
+    roomList : [{roomId:'默认房间'}],
     msgList : []
 }
 
@@ -12,6 +13,10 @@ export function global(state = Initialization , action) {
 				userName : action.userName
 			})
 		case 'ROOM_ID':
+			return Object.assign({},state,{
+				roomId : action.roomId
+			})
+		case 'ADD_ROOM_ID':
 			return Object.assign({},state,{
 				roomList:[
 					...state.roomList,
@@ -26,10 +31,14 @@ export function global(state = Initialization , action) {
 				msgList:[
 					...state.msgList,
 					{
-						msgList : action.smg
+						msgList : action.msg
 					}
 
 				]
+			})
+		case 'MSGC':
+			return Object.assign({},state,{
+				msgList: action.msgC
 			})
 		default:
 			return state
