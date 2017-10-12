@@ -23,14 +23,16 @@ export default class Home extends React.Component {
 	}
 	handleClick(){
 		let userName = this.myvalue.value
-		this.props.userName(userName);
-		this.props.history.push('/List')
+		if(userName != ''){
+			this.props.userName(userName);
+			this.props.history.push('/List')
+		}
 	}
 	render() {
 		return(
 			<div className="home">
 				<div className="input">
-					<input placeholder="请输入用户名" ref={(ref) => this.myvalue = ref} />
+					<input placeholder="请输入用户名(不能为空)" ref={(ref) => this.myvalue = ref} />
 				</div>
 				<div className="login" onClick={this.handleClick}>登录</div>
 			</div>

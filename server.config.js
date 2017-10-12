@@ -6,12 +6,13 @@ var io = require('socket.io').listen(server);
 server.listen(3000);
 
 var roomInfo = {};
-var user = '';
 
 io.sockets.on('connection', function (socket) {
 	//获取当前房间id
+	var user = '';
   	var roomId = socket.request._query.roomId;
   	socket.on('join',function(userName){
+  		//socket.emit('info');
 		user = userName;
     	// 将用户昵称加入房间名单中
     	if (!roomInfo[roomId]) {
@@ -23,6 +24,8 @@ io.sockets.on('connection', function (socket) {
     	//io.to(roomId).emit('sys', user + '加入了房间', roomInfo[roomId]);  
     	console.log(user + '加入了' + roomId);
     	//console.log(roomInfo);
+    	var roomPer = roomInfo[roomId];
+    	io.to(roomId).emit('info',roomPer)
 	});
 	socket.on('leave', function () {
 		socket.emit('disconnect');
@@ -31,12 +34,14 @@ io.sockets.on('connection', function (socket) {
 		// 从房间名单中移除
 		var index = roomInfo[roomId].indexOf(user);
 		if (index !== -1) {
-			roomInfo[roomId].splice(index-1, 1);
+			roomInfo[roomId].splice(index, 1);
 		}
 		socket.leave(roomId);    // 退出房间
 		//io.to(roomId).emit('sys', user + '退出了房间', roomInfo[roomId]);
 		console.log(user + '退出了' + roomId);
 		//console.log(roomInfo)
+		var roomPer = roomInfo[roomId];
+    	io.to(roomId).emit('info',roomPer)
 	});
 
 	// 接收用户消息,发送相应的房间
@@ -49,5 +54,5 @@ io.sockets.on('connection', function (socket) {
 			io.to(roomId).emit('msg',msg);
 		}
 	});
-
+	
 });
