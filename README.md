@@ -6,7 +6,7 @@
 
 手机端扫描二维码
 
-![cnode](https://github.com/biyunbo/react-cnode/raw/master/show/chat.png)
+![cnode](https://github.com/biyunbo/react-chat/raw/master/show/chat.png)
 
 ### 下载
 
