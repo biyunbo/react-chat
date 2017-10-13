@@ -29,7 +29,6 @@ export default class List extends React.Component {
 	}
 	render() {
 		let {roomList} = this.props.global
-		console.log(roomList)
 		return(
 			<div className="list">
 				<div className='search'>

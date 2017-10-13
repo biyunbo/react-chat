@@ -2,6 +2,12 @@
 
 ## 基于webpack2 + react + redux + socket.io + node 的React版实时聊天软件
 
+项目网站[React版实时聊天软件](http://chat.byb224.top)
+
+手机端扫描二维码
+
+![cnode](https://github.com/biyunbo/react-cnode/raw/master/show/chat.png)
+
 ### 下载
 
 ```

@@ -18,7 +18,6 @@ export default class Home extends React.Component {
 		this.handleClick = this.handleClick.bind(this)
 	}
 	componentWillMount(){
-		console.log(this.props)
 
 	}
 	handleClick(){

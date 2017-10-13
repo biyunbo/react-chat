@@ -1,5 +1,3 @@
-import instance from 'utils/instance';
-
 //用户名称
 export const userName = (userName) => ({
 	type: 'USER_NAME',
